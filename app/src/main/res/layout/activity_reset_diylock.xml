@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_reset_diylock"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.passwordprotecttest.ResetDIYLockActivity">
+    <LinearLayout
+        android:id="@+id/lockimg_ll"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:src="@drawable/lock"
+            />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/input_resetDIYLock_tv"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="请输入原密码："
+        android:textSize="35dp"
+        android:layout_below="@id/lockimg_ll"/>
+    <EditText
+        android:id="@+id/password_resetDiylock_et"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/input_resetDIYLock_tv"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:maxLines="1"
+        android:maxLength="20"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+        android:background="@drawable/edittext_background"/>
+</RelativeLayout>

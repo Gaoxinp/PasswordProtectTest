@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.passwordprotecttest">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".GuideActivity" />
+        <activity android:name=".RecordNewItemActivity" />
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".SafePageActivity" />
+        <activity android:name=".SysSetActivity" />
+        <activity android:name=".SetDLockActivity" />
+        <activity android:name=".ResetDLockActivity" />
+        <activity android:name=".DLockActivity" />
+        <activity android:name=".PLockActivity" />
+        <activity android:name=".DIYLockActivity"/>
+        <activity android:name=".SetDIYLockActivity" />
+        <activity android:name=".ResetDIYLockActivity"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_set_dlock"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.passwordprotecttest.SetDLockActivity"
+    >
+    <LinearLayout
+        android:id="@+id/lockimg_ll"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:src="@drawable/lock"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/input_setDLock_tv"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="请输入密码："
+        android:textSize="35dp"
+        android:layout_below="@id/lockimg_ll"/>
+    <TextView
+        android:id="@+id/inputAgain_setDLock_tv"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="请确认输入："
+        android:textSize="35dp"
+        android:layout_below="@id/lockimg_ll"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/passwordBox"
+        android:orientation="horizontal"
+        android:layout_below="@id/input_setDLock_tv"
+        android:layout_marginTop="15dp">
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="match_parent" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:focusableInTouchMode="false">
+            <EditText
+                android:id="@+id/password1_setdlock"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:maxLength="1"
+                android:textSize="30dp"
+                android:inputType="numberPassword"
+                android:background="@drawable/edittext_background"
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/password2_setdlock"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:maxLength="1"
+                android:textSize="30dp"
+                android:inputType="numberPassword"
+                android:background="@drawable/edittext_background"
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/password3_setdlock"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:maxLength="1"
+                android:textSize="30dp"
+                android:inputType="numberPassword"
+                android:background="@drawable/edittext_background"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/password4_setdlock"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:maxLength="1"
+                android:textSize="30dp"
+                android:inputType="numberPassword"
+                android:background="@drawable/edittext_background"
+                />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</RelativeLayout>
