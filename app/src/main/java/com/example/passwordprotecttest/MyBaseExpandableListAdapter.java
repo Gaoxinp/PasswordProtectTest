@@ -72,7 +72,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
      *在调用invalidateView时，ListView会刷新显示的内容，如果内容的id是有效的，系统会根据id来确定当前该县是哪条内容
      * 也就是firstVisibleChild的位置。id是否有效通过hasStableIds方法来判断，
      * 也就是说，该方法是来判断item的id是否稳定，如果有自己的id也就是true，那就是稳定，则根据item位置来确定id
-     * @return
+     * @return 是否稳定
      */
     @Override
     public boolean hasStableIds() {
