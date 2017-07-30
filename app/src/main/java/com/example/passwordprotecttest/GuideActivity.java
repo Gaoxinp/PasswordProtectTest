@@ -33,7 +33,19 @@ public class GuideActivity extends ExpandableListActivity {
     private String[][] childs_account = new String[groups.length][];
     private Cursor cursor;
     private String type_result;
+    /**
+     * 为ExpandableListView添加子列表点击事件
+     */
     private ExpandableListView.OnChildClickListener onItemClickListener = new ExpandableListView.OnChildClickListener() {
+        /**
+         * 当子列表被点击时调用
+         * @param parent
+         * @param v
+         * @param groupPosition
+         * @param childPosition
+         * @param id
+         * @return
+         */
         @Override
         public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
             Db db = new Db(context);
@@ -74,6 +86,9 @@ public class GuideActivity extends ExpandableListActivity {
 
 
     };
+    /**
+     * 为ExpandableListView设置子列表被长按的监听事件
+     */
     private AdapterView.OnItemLongClickListener onItemLongClickListener = new AdapterView.OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -105,6 +120,9 @@ public class GuideActivity extends ExpandableListActivity {
             return true;
         }
     };
+    /**
+     * 设置一组展开时，其他组关闭
+     */
     private ExpandableListView.OnGroupExpandListener onGroupExpandListener = new ExpandableListView.OnGroupExpandListener() {
         @Override
         public void onGroupExpand(int groupPosition) {
@@ -117,6 +135,9 @@ public class GuideActivity extends ExpandableListActivity {
             }
         }
     };
+    /**
+     * 为侧滑菜单里面的ListView设置item的点击事件
+     */
     private AdapterView.OnItemClickListener onClickListener_listView = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

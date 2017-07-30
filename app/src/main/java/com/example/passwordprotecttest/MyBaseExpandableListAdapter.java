@@ -15,8 +15,11 @@ import android.widget.TextView;
 public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private LayoutInflater inflater;
+//    第一级分级（组列表）的名称
     private String[] groups;
+//    第二级分级（子列表）中item的名字
     private String[][] childs_name;
+//    第二级分级（子列表）中item的账号
     private String[][] childs_account;
 
 
@@ -65,6 +68,12 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
         return childPosition;
     }
 
+    /**
+     *在调用invalidateView时，ListView会刷新显示的内容，如果内容的id是有效的，系统会根据id来确定当前该县是哪条内容
+     * 也就是firstVisibleChild的位置。id是否有效通过hasStableIds方法来判断，
+     * 也就是说，该方法是来判断item的id是否稳定，如果有自己的id也就是true，那就是稳定，则根据item位置来确定id
+     * @return
+     */
     @Override
     public boolean hasStableIds() {
         return true;
@@ -110,6 +119,10 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    /**
+     * 子列表的item可否点击
+     * @return true：可以点击    false：不能点击
+     */
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
