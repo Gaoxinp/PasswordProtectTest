@@ -12,6 +12,7 @@ import static com.example.passwordprotecttest.R.layout.toast;
 
 /**
  * Created by 高信朋 on 2017/8/6.
+ * 自定义的Toast
  */
 
 public class MyToast extends Toast {

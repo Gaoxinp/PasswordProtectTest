@@ -73,40 +73,42 @@ public class MyService extends Service {
         @Override
         public void run() {
             super.run();
-////                                            清空表记录
-            Db db = new Db(context);
-            SQLiteDatabase dbWrite = db.getWritableDatabase();
-            dbWrite.beginTransaction();
-            dbWrite.execSQL("DELETE FROM station;");
-            dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"station\";");
-            dbWrite.execSQL("DELETE FROM chat;");
-            dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"chat\";");
-            dbWrite.execSQL("DELETE FROM game;");
-            dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"game\";");
-            dbWrite.execSQL("DELETE FROM mail;");
-            dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"mail\";");
-            dbWrite.execSQL("DELETE FROM pay;");
-            dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"pay\";");
-            dbWrite.execSQL("DELETE FROM software;");
-            dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"software\";");
-            dbWrite.execSQL("DELETE FROM other;");
-            dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"other\";");
 
-            dbWrite.setTransactionSuccessful();
-            dbWrite.endTransaction();
 
             try {
                 File inputFile = new File("sdcard/backup.xml");
                 if (inputFile.exists()) {
+////                  如果备份文件存在，可以备份，则首先清空表记录
+                    Db db = new Db(context);
+                    SQLiteDatabase dbWrite = db.getWritableDatabase();
+                    dbWrite.beginTransaction();
+                    dbWrite.execSQL("DELETE FROM station;");
+                    dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"station\";");
+                    dbWrite.execSQL("DELETE FROM chat;");
+                    dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"chat\";");
+                    dbWrite.execSQL("DELETE FROM game;");
+                    dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"game\";");
+                    dbWrite.execSQL("DELETE FROM mail;");
+                    dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"mail\";");
+                    dbWrite.execSQL("DELETE FROM pay;");
+                    dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"pay\";");
+                    dbWrite.execSQL("DELETE FROM software;");
+                    dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"software\";");
+                    dbWrite.execSQL("DELETE FROM other;");
+                    dbWrite.execSQL("update sqlite_sequence set seq=0 where name=\"other\";");
+
+                    dbWrite.setTransactionSuccessful();
+                    dbWrite.endTransaction();
+//                    然后解析xml文件并增加数据
                     XmlPullParser pullParser = Xml.newPullParser();
                     FileInputStream fis = new FileInputStream(inputFile);
                     pullParser.setInput(fis, "utf-8");
 
                     ArrayList<Item> arrayList = new ArrayList<Item>();
                     Item item = new Item();
-//                                这里获取节点的类型
+//                     这里获取节点的类型
                     int type = pullParser.getEventType();
-//                                这里开始解析，当时XmlPullParser.END_DOCUMENT节点的时候就解析完成了
+//                     这里开始解析，当时XmlPullParser.END_DOCUMENT节点的时候就解析完成了
                     while (type != XmlPullParser.END_DOCUMENT) {
 //                                    判断是否是开始节点，包含pwpt、station、item、name、url、account、password、comment、chat、game、mail、pay、software、other
                         if (type == XmlPullParser.START_TAG) {
@@ -151,7 +153,7 @@ public class MyService extends Service {
                                     arrayList = new ArrayList<Item>();
                                     break;
                             }
-//                                        如果是XmlPullParser.END_TAG节点，包括item、station、chat、game、mail、pay、software、other、
+//                           如果是XmlPullParser.END_TAG节点，包括item、station、chat、game、mail、pay、software、other、
                         } else if (type == XmlPullParser.END_TAG) {
                             switch (pullParser.getName()) {
                                 case "item":
