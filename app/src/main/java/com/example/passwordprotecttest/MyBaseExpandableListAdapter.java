@@ -98,6 +98,9 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.child, parent, false);
         }
+        if(childPosition%2 !=0){
+            convertView.setBackgroundColor(0x9a9a9a);
+        }
         name_tv = (TextView) convertView.findViewById(R.id.textContentName);
         account_tv = (TextView) convertView.findViewById(R.id.textContentAccount);
         if ("".equals(childs_name[groupPosition][childPosition])) {

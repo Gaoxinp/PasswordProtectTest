@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.passwordprotecttest">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon"
@@ -27,6 +28,7 @@
         <activity android:name=".DIYLockActivity"/>
         <activity android:name=".SetDIYLockActivity" />
         <activity android:name=".ResetDIYLockActivity"></activity>
+        <service android:name=".MyService"/>
     </application>
 
 </manifest>

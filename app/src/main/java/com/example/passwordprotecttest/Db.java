@@ -26,6 +26,8 @@ public class Db extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE other(_id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT DEFAULT \"\",url TEXT DEFAULT \"\",account TEXT DEFAULT \"\",password TEXT DEFAULT \"\",comment TEXT DEFAULT \"\")");
     }
 
+
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
