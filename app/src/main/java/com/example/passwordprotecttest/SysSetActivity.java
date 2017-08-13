@@ -54,23 +54,24 @@ public class SysSetActivity extends AppCompatActivity {
     private String[] type = new String[]{"station", "chat", "game", "mail", "pay", "software", "other"};
 
     private MyService.MyBinder mBinder;
-    private ServiceConnection conn = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mBinder = (MyService.MyBinder) service;
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-
-        }
-    };
+    private ServiceConnection conn;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sys_set);
+        conn = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                mBinder = (MyService.MyBinder) service;
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+
+            }
+        };
         new ScreenListener(context).begin(new ScreenListener.ScreenStateListener() {
             @Override
             public void onScreenOn() {
@@ -229,6 +230,6 @@ public class SysSetActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        unbindService(conn);
+//        unbindService(conn);
     }
 }
